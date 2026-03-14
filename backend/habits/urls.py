@@ -1,10 +1,14 @@
-from django.urls import path, include
+# Import Django REST Framework router
 from rest_framework.routers import DefaultRouter
+
+# Import the Habit viewset
 from .views import HabitViewSet
 
+# Create a router instance
 router = DefaultRouter()
-router.register(r'habits', HabitViewSet)
 
-urlpatterns = [
-    path('', include(router.urls)),
-]
+# Register the HabitViewSet with a basename
+router.register(r'habits', HabitViewSet, basename='habit')
+
+# Export the router URLs
+urlpatterns = router.urls
