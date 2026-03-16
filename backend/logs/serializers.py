@@ -14,3 +14,4 @@ class HabitLogSerializer(serializers.ModelSerializer):
     class Meta:
         model = HabitLog
         fields = "__all__"
+        read_only_fields = ["user"]

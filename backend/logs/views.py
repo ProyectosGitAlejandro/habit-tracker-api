@@ -1,13 +1,12 @@
 # Import DRF viewsets
 from rest_framework import viewsets
-
 # Import permissions
 from rest_framework.permissions import IsAuthenticated
-
+# Import filtered
+from django_filters.rest_framework import DjangoFilterBackend 
 # Import models and serializers
 from .models import HabitLog
 from .serializers import HabitLogSerializer
-
 
 class HabitLogViewSet(viewsets.ModelViewSet):
     """
