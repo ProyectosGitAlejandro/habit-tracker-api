@@ -22,7 +22,7 @@ urlpatterns = [
     path('api/auth/login/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('api/auth/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
 
-    # Apps (separadas correctamente)
+    # Apps
     path('api/habits/', include('habits.urls')),
     path('api/logs/', include('logs.urls')),
     path('api/analytics/', include('analytics.urls')),
