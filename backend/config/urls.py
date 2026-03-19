@@ -15,7 +15,7 @@ from drf_spectacular.views import SpectacularAPIView, SpectacularSwaggerView
 
 # Health check
 def home(request):
-    return JsonResponse({"message": "Habit Tracker API is running 🚀"})
+    return JsonResponse({"message": "Habit Tracker API is running."})
 
 urlpatterns = [
     # Root endpoint (health check)
