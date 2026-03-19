@@ -12,20 +12,22 @@ from drf_spectacular.views import SpectacularAPIView, SpectacularSwaggerView
 
 
 urlpatterns = [
-    # Django admin panel
+    # Root endpoint (health check)
+    path('', home),
+
+    # Admin
     path('admin/', admin.site.urls),
-    # Authentication endpoint
+
+    # Auth
     path('api/auth/login/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
-    # Token refresh endpoint
     path('api/auth/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
-    # Habits endpoints
-    path('api/', include('habits.urls')),
-    # Logs endpoints
-    path('api/', include('logs.urls')),
-    # Analitycs endpoints
-     path("api/analytics/", include("analytics.urls")),
-    #API Documentation
-    path("api/schema/", SpectacularAPIView.as_view(), name="api-schema"),  # NEW
-    path("api/docs/", SpectacularSwaggerView.as_view(url_name="api-schema"), name="api-docs"),  # NEW
-    
+
+    # Apps (separadas correctamente)
+    path('api/habits/', include('habits.urls')),
+    path('api/logs/', include('logs.urls')),
+    path('api/analytics/', include('analytics.urls')),
+
+    # API Docs
+    path('api/schema/', SpectacularAPIView.as_view(), name='api-schema'),
+    path('api/docs/', SpectacularSwaggerView.as_view(url_name='api-schema'), name='api-docs'),
 ]
