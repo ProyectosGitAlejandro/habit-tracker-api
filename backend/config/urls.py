@@ -10,6 +10,9 @@ from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 #Import Drf documentation 
 from drf_spectacular.views import SpectacularAPIView, SpectacularSwaggerView
 
+# Health check
+def home(request):
+    return JsonResponse({"message": "Habit Tracker API is running 🚀"})
 
 urlpatterns = [
     # Root endpoint (health check)
