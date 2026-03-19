@@ -4,6 +4,9 @@ from django.contrib import admin
 # Import Django utilities to define URL routes and include other URL configurations
 from django.urls import path, include
 
+#Import JsonResponse
+from django.http import JsonResponse
+
 # Import JWT authentication views
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 
